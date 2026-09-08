@@ -1,3 +1,177 @@
-h1 {
-    color: orange;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Hind Madurai', Arial, sans-serif;
+    background-color: hsl(221, 100%, 96%);
+    min-height: 100vh;
+    position: relative;
+}
+
+.card {
+    width: 700px;
+    max-width: calc(100% - 2rem);
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 2rem 3rem hsl(224, 30%, 85%);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.result {
+    text-align: center;
+    padding: 2.5rem 2.5rem 3rem;
+    color: hsl(0, 0%, 100%);
+    background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    border-radius: 2rem;
+}
+
+.result__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: hsl(241, 100%, 89%);
+}
+
+.result__score {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 2rem auto 1.5rem;
+    background-image: linear-gradient(hsl(256, 72%, 46%), hsl(241, 72%, 46%));
+
+    display: grid;
+    place-content: center;
+}
+
+.result__score-value {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.result__score-max {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: hsl(241, 100%, 89%);
+}
+
+.result__label {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.result__text {
+    color: hsl(241, 100%, 89%);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+
+
+.summary {
+    padding: 2.5rem;
+}
+
+.summary__title {
+    font-size: 1.25rem;
+    color: hsl(224, 30%, 27%);
+    margin-bottom: 1.25rem;
+}
+
+.summary__list {
+    list-style: none;
+}
+
+.summary__item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 0.75rem;
+    padding: 0.9rem 1rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.summary__item--reaction {
+    background-color: hsl(0, 100%, 67%, 0.08);
+    color: hsl(0, 100%, 67%);
+}
+
+.summary__item--memory {
+    background-color: hsl(39, 100%, 56%, 0.08);
+    color: hsl(39, 100%, 56%);
+}
+
+.summary__item--verbal {
+    background-color: hsl(166, 100%, 37%, 0.08);
+    color: hsl(166, 100%, 37%);
+}
+
+.summary__item--visual {
+    background-color: hsl(234, 85%, 45%, 0.08);
+    color: hsl(234, 85%, 45%);
+}
+
+.summary__label {
+    color: inherit;
+    font-weight: 600;
+}
+
+
+
+.icon {
+    font-size: 1rem;
+    color: inherit;
+}
+
+.summary__score {
+    color: hsl(224, 30%, 27%, 0.5);
+}
+
+.summary__score strong {
+    color: hsl(224, 30%, 27%);
+}
+
+.summary__button {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 0.9rem;
+    margin-top: 0.5rem;
+    border-radius: 100px;
+    background-color: hsl(224, 30%, 27%);
+    background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    color: hsl(0, 0%, 100%);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.summary__button:hover {
+    background-image: none;
+    background-color: hsl(241, 72%, 46%);
+}
+
+@media (max-width: 600px) {
+    .card {
+        grid-template-columns: 1fr;
+        width: 400px;
+    }
+
+    .result {
+        border-radius: 2rem 2rem 2rem 2rem;
+    }
 }

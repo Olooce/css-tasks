@@ -1,9 +1,53 @@
 <html lang="en">
-<head >
-    <title>Task 1 Results Card</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Card</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Task 1 Results Card</h1>
+    <main class="card">
+        <section class="result">
+            <h1 class="result__title">Your Result</h1>
+            <div class="result__score">
+                <span class="result__score-value">76</span>
+                <span class="result__score-max">of 100</span>
+            </div>
+            <h2 class="result__label">Great</h2>
+            <p class="result__text">
+                You scored higher than 65% of the people who have taken these tests.
+            </p>
+        </section>
+
+        <section class="summary">
+            <h2 class="summary__title">Summary</h2>
+
+            <ul class="summary__list">
+                <li class="summary__item summary__item--reaction">
+                    <i class="icon fa-solid fa-bolt fa-fw" aria-hidden="true"></i>
+                    <span class="summary__label">Reaction</span>
+                    <span class="summary__score"><strong>80</strong> / 100</span>
+                </li>
+                <li class="summary__item summary__item--memory">
+                    <i class="icon fa-solid fa-brain fa-fw" aria-hidden="true"></i>
+                    <span class="summary__label">Memory</span>
+                    <span class="summary__score"><strong>92</strong> / 100</span>
+                </li>
+                <li class="summary__item summary__item--verbal">
+                    <i class="icon fa-solid fa-comment fa-fw" aria-hidden="true"></i>
+                    <span class="summary__label">Verbal</span>
+                    <span class="summary__score"><strong>61</strong> / 100</span>
+                </li>
+                <li class="summary__item summary__item--visual">
+                    <i class="icon fa-solid fa-eye fa-fw" aria-hidden="true"></i>
+                    <span class="summary__label">Visual</span>
+                    <span class="summary__score"><strong>73</strong> / 100</span>
+                </li>
+            </ul>
+
+            <button class="summary__button" type="button">Continue</button>
+        </section>
+    </main>
 </body>
 </html>
