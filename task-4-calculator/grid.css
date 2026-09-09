@@ -188,13 +188,17 @@ body {
     border-radius: 0.6rem;
     padding: 1.5rem;
 
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--gap);
 }
 
+.key--reset,
+.key--equals {
+    grid-column: span 2;
+}
+
 .key {
-    flex: 1 1 calc((100% - 3 * var(--gap)) / 4);
     border: none;
     border-radius: 0.5rem;
     padding: 0.9rem 0;
@@ -203,11 +207,6 @@ body {
     font-weight: 700;
     cursor: pointer;
     transition: transform 0.05s ease, box-shadow 0.05s ease, filter 0.1s ease;
-}
-
-.key--reset,
-.key--equals {
-    flex-basis: calc((100% - var(--gap)) / 2);
 }
 
 .key--light {
