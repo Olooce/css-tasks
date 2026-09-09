@@ -1,9 +1,131 @@
 <html lang="en">
-<head >
-    <title>Task 3 Mortgage Calculator</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Task 3 Mortgage Calculator</h1>
+    <main class="calculator">
+        <section class="calculator__form">
+            <div class="calculator__form-head">
+                <h1>Mortgage Calculator</h1>
+                <button type="button" class="link-button" id="clearAllBtn">Clear All</button>
+            </div>
+
+            <form id="mortgageForm">
+                <div class="field">
+                    <label for="amount">Mortgage Amount</label>
+                    <div class="input-affix">
+                        <span class="input-affix__prefix">&pound;</span>
+                        <input id="amount" name="amount" type="text" inputmode="decimal">
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label for="term">Mortgage Term</label>
+                        <div class="input-affix input-affix--suffix">
+                            <input id="term" name="term" type="text" inputmode="numeric">
+                            <span class="input-affix__suffix">years</span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="rate">Interest Rate</label>
+                        <div class="input-affix input-affix--suffix">
+                            <input id="rate" name="rate" type="text" inputmode="decimal">
+                            <span class="input-affix__suffix">%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <fieldset class="mortgage-type">
+                    <legend>Mortgage Type</legend>
+                    <label class="radio-option">
+                        <input type="radio" name="mortgageType" value="repayment" checked>
+                        <span class="radio-option__dot" aria-hidden="true"></span>
+                        <span class="radio-option__label">Repayment</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="mortgageType" value="interest-only">
+                        <span class="radio-option__dot" aria-hidden="true"></span>
+                        <span class="radio-option__label">Interest Only</span>
+                    </label>
+                </fieldset>
+
+                <button type="submit" class="btn-calculate">
+                    <i class="fa-solid fa-calculator" aria-hidden="true"></i>
+                    Calculate Repayments
+                </button>
+            </form>
+        </section>
+
+        <section class="calculator__results">
+            <div class="results-empty" id="resultsEmpty">
+                <img class="results-empty__icon" src="illustration.png" alt="">
+                <h2>Results shown here</h2>
+                <p>Complete the form and click &ldquo;calculate repayments&rdquo; to see what your monthly repayments would be.</p>
+            </div>
+
+            <div class="results-summary" id="resultsSummary" hidden>
+                <h2>Your results</h2>
+                <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and calculate again.</p>
+                <div class="results-summary__card">
+                    <p class="results-summary__label">Your monthly repayments</p>
+                    <p class="results-summary__amount" id="monthlyAmount">&pound;0</p>
+                    <hr>
+                    <p class="results-summary__label">Total you&rsquo;ll repay over the term</p>
+                    <p class="results-summary__total" id="totalAmount">&pound;0</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById('mortgageForm');
+        const resultsEmpty = document.getElementById('resultsEmpty');
+        const resultsSummary = document.getElementById('resultsSummary');
+        const monthlyAmount = document.getElementById('monthlyAmount');
+        const totalAmount = document.getElementById('totalAmount');
+        const clearAllBtn = document.getElementById('clearAllBtn');
+
+        function formatCurrency(value) {
+            return '£' + value.toLocaleString('en-GB', { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+        }
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const principal = parseFloat(form.amount.value) || 0;
+            const years = parseFloat(form.term.value) || 0;
+            const rate = parseFloat(form.rate.value) || 0;
+            const isInterestOnly = form.mortgageType.value === 'interest-only';
+
+            const monthlyRate = rate / 100 / 12;
+            const numPayments = years * 12;
+
+            let monthly = 0;
+            if (isInterestOnly) {
+                monthly = principal * (rate / 100) / 12;
+            } else if (monthlyRate > 0 && numPayments > 0) {
+                monthly = principal * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+            } else if (numPayments > 0) {
+                monthly = principal / numPayments;
+            }
+
+            monthlyAmount.textContent = formatCurrency(monthly);
+            totalAmount.textContent = formatCurrency(monthly * numPayments);
+
+            resultsEmpty.hidden = true;
+            resultsSummary.hidden = false;
+        });
+
+        clearAllBtn.addEventListener('click', () => {
+            form.reset();
+            resultsEmpty.hidden = false;
+            resultsSummary.hidden = true;
+        });
+    </script>
 </body>
 </html>
