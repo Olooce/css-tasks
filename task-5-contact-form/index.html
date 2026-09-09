@@ -1,9 +1,39 @@
 <html lang="en">
-<head >
-    <title>Task 5 Contact Form</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
     <link href="index.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Task 5 Contact Form</h1>
+    <main class="contact">
+        <aside class="contact__intro">
+            <h1 class="contact__heading">Contact us</h1>
+            <p class="contact__lead">We can’t wait to hear from you. Feel free to get in touch with us.</p>
+            <address class="contact__address">
+                Happy ST<br>
+                000-111-222
+            </address>
+        </aside>
+
+        <form class="contact__form">
+            <div class="field">
+                <label for="fullName">Full Name</label>
+                <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="field field--full">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-send">Send message</button>
+        </form>
+    </main>
 </body>
 </html>
