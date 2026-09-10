@@ -1,9 +1,269 @@
+<!DOCTYPE html>
 <html lang="en">
-<head >
-    <title>Task Heading</title>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Task Heading</h1>
+<div class="app">
+    <header class="topbar">
+        <p class="topbar__brand">JOIN</p>
+
+        <form class="topbar__search" role="search">
+            <label class="sr-only" for="search-jobs">Search for jobs, candidates</label>
+            <i aria-hidden="true" class="fa-solid fa-magnifying-glass"></i>
+            <input id="search-jobs" placeholder="Search for jobs, candidates, ..." type="search">
+        </form>
+
+        <div class="topbar__actions">
+            <button class="btn-primary" type="button">
+                <i aria-hidden="true" class="fa-solid fa-plus"></i> Create new job
+            </button>
+            <!--            <button type="button" class="icon-btn" aria-label="Notifications">-->
+            <button aria-label="Notifications" class="icon-btn" type="button">
+                <i aria-hidden="true" class="fa-regular fa-bell"></i>
+            </button>
+            <button class="topbar__user" type="button">
+                    <span class="topbar__user-avatar">
+                        <img alt="" src="https://picsum.photos/seed/julian-recruiter/64/64">
+                        <span class="brand-icon"><img alt="" src="icon.png"></span>
+                    </span>
+                <span>Julian H.</span>
+                <i aria-hidden="true" class="fa-solid fa-chevron-down"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="app__body">
+        <nav aria-label="Primary" class="sidebar">
+            <div class="sidebar__company">
+                <span class="brand-icon"><img alt="" src="icon.png"></span>
+                <span>Fintory</span>
+            </div>
+            <ul class="sidebar__nav">
+                <li><a href="#"><img alt="" aria-hidden="true" class="nav-icon" src="dashboard.png"> Dashboard</a></li>
+                <li><a href="#"><i aria-hidden="true" class="fa-solid fa-briefcase"></i> Jobs</a></li>
+                <li><a href="#"><img alt="" aria-hidden="true" class="nav-icon" src="candidates.png"> Candidates</a>
+                </li>
+                <li><a aria-current="page" class="is-active" href="#"><img alt="" aria-hidden="true" class="nav-icon"
+                                                                           src="chat.png"> Messages</a></li>
+                <li><a href="#"><i aria-hidden="true" class="fa-solid fa-building"></i> Company</a></li>
+                <li><a href="#"><img alt="" aria-hidden="true" class="nav-icon" src="settings.png"> Settings</a></li>
+            </ul>
+        </nav>
+
+        <aside aria-label="Conversations" class="messages-panel">
+            <div class="messages-panel__header">
+                <h1>Messages <span class="badge">25</span></h1>
+            </div>
+
+            <form class="messages-panel__search" role="search">
+                <label class="sr-only" for="search-messages">Search messages</label>
+                <i aria-hidden="true" class="fa-solid fa-magnifying-glass"></i>
+                <input id="search-messages" placeholder="Search" type="search">
+            </form>
+
+            <label class="sr-only" for="messages-filter">Filter messages</label>
+            <select class="messages-panel__filter" id="messages-filter">
+                <option>All Messages</option>
+                <option>Unread</option>
+                <option>Archived</option>
+            </select>
+
+            <ul class="conversation-list">
+                <li>
+                    <a class="conversation is-active" href="#">
+                        <span class="avatar avatar--initials">JH</span>
+                        <span class="conversation__body">
+                                <span class="conversation__top">
+                                    <span class="conversation__name">Julian H.</span>
+                                    <span class="conversation__time">2h ago</span>
+                                </span>
+                                <span class="conversation__role">applied for <strong>UI / UX Designer</strong></span>
+                                <span class="conversation__preview">Julian Herbst: Hi, I have a quick question regarding my application on the open…</span>
+                            </span>
+                        <span aria-hidden="true" class="conversation__dot"></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="conversation" href="#">
+                        <img alt="" class="avatar" src="https://picsum.photos/seed/ramona-j/64/64">
+                        <span class="conversation__body">
+                                <span class="conversation__top">
+                                    <span class="conversation__name">Ramona J.</span>
+                                    <span class="conversation__time">12h ago</span>
+                                </span>
+                                <span class="conversation__role">applied for <strong>UI / UX Designer</strong></span>
+                                <span class="conversation__preview">Lena Nattke: Hi Ramona, we just reviewed your application and we're happy to…</span>
+                            </span>
+                        <span aria-hidden="true" class="conversation__dot"></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="conversation" href="#">
+                        <img alt="" class="avatar" src="https://picsum.photos/seed/dominik-w/64/64">
+                        <span class="conversation__body">
+                                <span class="conversation__top">
+                                    <span class="conversation__name">Dominik W.</span>
+                                    <span class="conversation__time">2 days ago</span>
+                                </span>
+                                <span class="conversation__role">applied for <strong>Teamlead Design</strong></span>
+                                <span class="conversation__preview">Lena Nattke: Hi Dominik, we just reviewed your application and we're happy to…</span>
+                            </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="conversation" href="#">
+                        <img alt="" class="avatar" src="https://picsum.photos/seed/kevin-m/64/64">
+                        <span class="conversation__body">
+                                <span class="conversation__top">
+                                    <span class="conversation__name">Kevin M.</span>
+                                    <span class="conversation__time">2 days ago</span>
+                                </span>
+                                <span class="conversation__role">applied for <strong>A very very long position that…</strong></span>
+                                <span class="conversation__preview">Kevin Meyers: Good morning, I just wanted to share my design challenge results…</span>
+                            </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="conversation" href="#">
+                        <img alt="" class="avatar" src="https://picsum.photos/seed/ramona-j2/64/64">
+                        <span class="conversation__body">
+                                <span class="conversation__top">
+                                    <span class="conversation__name">Ramona J.</span>
+                                    <span class="conversation__time">1 week ago</span>
+                                </span>
+                                <span class="conversation__role">applied for <strong>UI / UX Designer</strong></span>
+                                <span class="conversation__preview">Lena Nattke: Hi Ramona, we just reviewed your application and we're happy to…</span>
+                            </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="conversation" href="#">
+                        <img alt="" class="avatar" src="https://picsum.photos/seed/dominik-w2/64/64">
+                        <span class="conversation__body">
+                                <span class="conversation__top">
+                                    <span class="conversation__name">Dominik W.</span>
+                                    <span class="conversation__time">08.03.20</span>
+                                </span>
+                                <span class="conversation__role">applied for <strong>Teamlead Design</strong></span>
+                                <span class="conversation__preview">Lena Nattke: Hi Dominik, we just reviewed your application and we're happy to…</span>
+                            </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="conversation" href="#">
+                        <img alt="" class="avatar" src="https://picsum.photos/seed/kevin-m2/64/64">
+                        <span class="conversation__body">
+                                <span class="conversation__top">
+                                    <span class="conversation__name">Kevin M.</span>
+                                    <span class="conversation__time">04.03.20</span>
+                                </span>
+                                <span class="conversation__role">applied for <strong>UI / UX Designer</strong></span>
+                                <span class="conversation__preview">Kevin Meyers: Good morning, I just wanted to share my design challenge results…</span>
+                            </span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="chat">
+            <header class="chat__header">
+                <div>
+                    <h2>Julian Herbst</h2>
+                    <p>applied for <a href="#">UI / UX Designer</a></p>
+                </div>
+                <div class="chat__header-actions">
+                    <button class="btn-outline" type="button">View Profile</button>
+                    <select aria-label="Application status" class="chat__status">
+                        <option>Applied</option>
+                        <option>Interviewing</option>
+                        <option>Hired</option>
+                        <option>Rejected</option>
+                    </select>
+                    <button aria-label="Approve candidate" class="icon-btn icon-btn--accept" type="button">
+                        <i aria-hidden="true" class="fa-solid fa-thumbs-up"></i>
+                    </button>
+                    <button aria-label="Reject candidate" class="icon-btn" type="button">
+                        <i aria-hidden="true" class="fa-solid fa-xmark"></i>
+                    </button>
+                    <button aria-label="More options" class="icon-btn" type="button">
+                        <i aria-hidden="true" class="fa-solid fa-ellipsis-vertical"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="chat__messages">
+                <div class="chat__divider"><span>09.03.20</span></div>
+
+                <article class="message message--in">
+                    <span class="avatar avatar--initials">JH</span>
+                    <div class="message__bubble">
+                        <p class="message__author">Julian Herbst</p>
+                        <p>Hi Lena, I have a quick question regarding my application on the open position „UI / UX
+                            Designer“:</p>
+                        <p>How long does it usually take for you to review a application? I have some options right now
+                            but I would like to consider your company as well but I have no response since I applied.
+                            Please just give me a quick message.</p>
+                        <p>Thanks and best regards,<br>Julian Herbst</p>
+                    </div>
+                </article>
+                <p class="chat__meta">Message sent 1 week ago</p>
+
+                <div class="chat__divider"><span>Today</span></div>
+
+                <article class="message message--out">
+                    <div class="message__bubble">
+                        <p>Hi Julian,<br>
+                            sorry for the delayed response but we're currently really busy screening a lot of new
+                            candidates. So to answer your question: Usually we need around 1 week to review the
+                            applications and I just took a look into yours.</p>
+                        <p>We like what we see and would like to send you our Design Challenge – that's the way we see
+                            how qualified you are. The timeframe is a normal working day (~8 hours).</p>
+                        <p>Please finish it within the next 7 days. If you have any questions feel free to message me
+                            here.</p>
+                    </div>
+                    <img alt="" class="avatar" src="https://picsum.photos/seed/lena-nattke/64/64">
+                </article>
+                <p class="chat__meta chat__meta--right">Message sent just now</p>
+            </div>
+
+            <form class="chat__composer">
+                <label class="sr-only" for="composer-input">Write your message</label>
+                <textarea id="composer-input" placeholder="Write your message" rows="3"></textarea>
+                <div class="chat__composer-toolbar">
+                    <div class="chat__composer-format">
+                        <button aria-label="Attach a file" type="button"><i aria-hidden="true"
+                                                                            class="fa-solid fa-paperclip"></i></button>
+                        <button aria-label="Bold" type="button"><i aria-hidden="true" class="fa-solid fa-bold"></i>
+                        </button>
+                        <button aria-label="Italic" type="button"><i aria-hidden="true" class="fa-solid fa-italic"></i>
+                        </button>
+                        <button aria-label="Bulleted list" type="button"><i aria-hidden="true"
+                                                                            class="fa-solid fa-list-ul"></i></button>
+                        <button aria-label="Numbered list" type="button"><i aria-hidden="true"
+                                                                            class="fa-solid fa-list-ol"></i></button>
+                        <button aria-label="Insert link" type="button"><i aria-hidden="true"
+                                                                          class="fa-solid fa-link"></i></button>
+                        <button aria-label="Insert image" type="button"><i aria-hidden="true"
+                                                                           class="fa-regular fa-image"></i></button>
+                    </div>
+                    <div class="chat__composer-send">
+                        <button aria-label="Choose an emoji" type="button"><i aria-hidden="true"
+                                                                              class="fa-regular fa-face-smile"></i></button>
+                        <button aria-label="More options" type="button"><i aria-hidden="true"
+                                                                           class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <button class="btn-primary btn-send" type="submit">Send <i aria-hidden="true"
+                                                                                   class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
 </body>
 </html>
