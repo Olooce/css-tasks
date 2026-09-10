@@ -1,9 +1,39 @@
 <html lang="en">
-<head >
-    <title>Task Heading</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Input</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Task Heading</h1>
+    <form class="chat-input" aria-label="Send a message">
+        <div class="chat-input__actions">
+            <button type="button" class="icon-btn icon-btn--round" aria-label="Add">
+                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="icon-btn icon-btn--square" aria-label="Send a GIF">
+                <span class="icon-btn__gif">GIF</span>
+            </button>
+            <button type="button" class="icon-btn icon-btn--square" aria-label="Send a sticker">
+                <i class="fa-solid fa-note-sticky" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="icon-btn icon-btn--square" aria-label="Attach an image">
+                <i class="fa-solid fa-image" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <div class="chat-input__field">
+            <label for="message" class="sr-only">Type a message</label>
+            <input id="message" name="message" type="text" placeholder="Type a message…" autocomplete="off">
+            <button type="button" class="icon-btn icon-btn--emoji" aria-label="Choose an emoji">
+                <i class="fa-regular fa-face-smile" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <button type="submit" class="icon-btn icon-btn--like" aria-label="Send a like">
+            <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
+        </button>
+    </form>
 </body>
 </html>
