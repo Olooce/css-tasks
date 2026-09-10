@@ -1,9 +1,89 @@
 <html lang="en">
-<head >
-    <title>Task Heading</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
     <link href="index.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Task Heading</h1>
+    <div class="calendar">
+        <div class="calendar__toolbar">
+            <div class="btn-group" role="group" aria-label="Navigate">
+                <button type="button">Today</button>
+                <button type="button">Back</button>
+                <button type="button">Next</button>
+            </div>
+
+            <h1 class="calendar__title">January 2025</h1>
+
+            <div class="btn-group" role="group" aria-label="View">
+                <button type="button" class="is-active" aria-pressed="true">Month</button>
+                <button type="button" aria-pressed="false">Week</button>
+                <button type="button" aria-pressed="false">Day</button>
+            </div>
+        </div>
+
+        <table class="calendar__grid">
+            <caption class="sr-only">January 2025</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Sunday</th>
+                    <th scope="col">Monday</th>
+                    <th scope="col">Tuesday</th>
+                    <th scope="col">Wednesday</th>
+                    <th scope="col">Thursday</th>
+                    <th scope="col">Friday</th>
+                    <th scope="col">Saturday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="is-outside is-outside--prev"><time datetime="2024-12-29">29</time></td>
+                    <td class="is-outside is-outside--prev"><time datetime="2024-12-30">30</time></td>
+                    <td class="is-outside is-outside--prev"><time datetime="2024-12-31">31</time></td>
+                    <td><time datetime="2025-01-01">01</time></td>
+                    <td><time datetime="2025-01-02">02</time></td>
+                    <td><time datetime="2025-01-03">03</time></td>
+                    <td><time datetime="2025-01-04">04</time></td>
+                </tr>
+                <tr>
+                    <td><time datetime="2025-01-05">05</time></td>
+                    <td><time datetime="2025-01-06">06</time></td>
+                    <td><time datetime="2025-01-07">07</time></td>
+                    <td><time datetime="2025-01-08">08</time></td>
+                    <td><time datetime="2025-01-09">09</time></td>
+                    <td><time datetime="2025-01-10">10</time></td>
+                    <td><time datetime="2025-01-11">11</time></td>
+                </tr>
+                <tr>
+                    <td><time datetime="2025-01-12">12</time></td>
+                    <td><time datetime="2025-01-13">13</time></td>
+                    <td><time datetime="2025-01-14">14</time></td>
+                    <td><time datetime="2025-01-15">15</time></td>
+                    <td><time datetime="2025-01-16">16</time></td>
+                    <td><time datetime="2025-01-17">17</time></td>
+                    <td><time datetime="2025-01-18">18</time></td>
+                </tr>
+                <tr>
+                    <td><time datetime="2025-01-19">19</time></td>
+                    <td><time datetime="2025-01-20">20</time></td>
+                    <td><time datetime="2025-01-21">21</time></td>
+                    <td><time datetime="2025-01-22">22</time></td>
+                    <td><time datetime="2025-01-23">23</time></td>
+                    <td><time datetime="2025-01-24">24</time></td>
+                    <td><time datetime="2025-01-25">25</time></td>
+                </tr>
+                <tr>
+                    <td><time datetime="2025-01-26">26</time></td>
+                    <td><time datetime="2025-01-27">27</time></td>
+                    <td><time datetime="2025-01-28">28</time></td>
+                    <td><time datetime="2025-01-29">29</time></td>
+                    <td><time datetime="2025-01-30">30</time></td>
+                    <td><time datetime="2025-01-31">31</time></td>
+                    <td class="is-outside is-outside--next"><time datetime="2025-02-01">01</time></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
